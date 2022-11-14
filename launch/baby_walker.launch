@@ -1,0 +1,3 @@
+<launch>
+    <node name="menu" pkg="baby-walker" type="menu_driver.py" args="_pin_num_up_button:=11 _pin_num_down_button:=10 _pin_num_right_button:=12 _pin_num_left_button:=8" />
+</launch>
