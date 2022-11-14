@@ -13,6 +13,7 @@
 ## Developer Building and Running Package
 
 1. Enter catkin_ws directory: `cd ~/catkin_ws`
-2. Run `sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/melodic --pkg baby-walker -j2`. If run multiple times a script or alias for this command may be useful.
-3. Run `roscore`
-4. Run launch file for baby walker package
+1. Run `sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/melodic --pkg baby-walker -j2`.
+2. Run launch file with `roslaunch ~/catkin_ws/src/baby-walker/launch/baby_walker.launch
+
+A script on the Pi may already exist to run these two commands and make life easier
