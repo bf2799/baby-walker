@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 
-import enum
 import traceback
-from typing import Any, Dict, List
+from typing import Dict, List
 
 import rospy
 import RPi.GPIO as GPIO
@@ -20,7 +19,9 @@ class BabyWalkerMenu:
         }
         self._publishers = [
             rospy.Publisher(
-                f"baby_walker/settings/{option.replace(' ', '_').lower()}", String, queue_size=3
+                f"baby_walker/settings/{option.replace(' ', '_').lower()}",
+                String,
+                queue_size=3,
             )
             for option in self._options.keys()
         ]
@@ -121,10 +122,9 @@ if __name__ == "__main__":
 
         rospy.loginfo("Successfully initialized menu_driver node")
 
-        while not rospy.is_shutdown():
-            pass
+        rospy.spin()
 
-    except Exception as e:
+    except Exception:
         rospy.logerr(f"Failed to initialize menu_driver node: {traceback.format_exc()}")
 
     GPIO.cleanup()
