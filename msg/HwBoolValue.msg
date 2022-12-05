@@ -1,0 +1,2 @@
+string hw
+bool val
