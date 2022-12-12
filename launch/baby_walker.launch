@@ -1,4 +1,6 @@
 <launch>
     <node name="servo" pkg="baby_walker" type="servo_driver.py" args="_pin_num_fl:=32 _pin_num_fr:=33 _pin_num_bl:=37 _pin_num_br:=31" />
     <node name="menu" pkg="baby_walker" type="menu_driver.py" args="_pin_num_up_button:=11 _pin_num_down_button:=10 _pin_num_right_button:=12 _pin_num_left_button:=8" />
+    <node name="hall_effect" pkg="baby_walker" type="hall_effect_driver.py" args="_pin_num_hall_fl:=29 _pin_num_hall_fr:=18 _pin_num_hall_bl:=22 _pin_num_hall_br:=16" />
+    <node name="buzzer" pkg="baby_walker" type="buzzer_driver.py" args="_pin_num_buzz:=24" />
 </launch>
