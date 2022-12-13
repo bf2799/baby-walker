@@ -3,4 +3,5 @@
     <node name="menu" pkg="baby_walker" type="menu_driver.py" args="_pin_num_up_button:=29 _pin_num_down_button:=31 _pin_num_right_button:=32 _pin_num_left_button:=33" />
     <node name="hall_effect" pkg="baby_walker" type="hall_effect_driver.py" args="_pin_num_hall_fl:=15 _pin_num_hall_fr:=16 _pin_num_hall_bl:=18 _pin_num_hall_br:=19" />
     <node name="buzzer" pkg="baby_walker" type="buzzer_driver.py" args="_pin_num_buzz:=21" />
+    <node name="main" pkg="baby_walker" type="main_logic.py" />
 </launch>

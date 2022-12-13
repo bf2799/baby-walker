@@ -165,6 +165,7 @@ catkin_install_python(PROGRAMS
   scripts/servo_driver.py
   scripts/hall_effect_driver.py
   scripts/buzzer_driver.py
+  scripts/main_logic.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 

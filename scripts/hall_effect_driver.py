@@ -70,10 +70,10 @@ if __name__ == "__main__":
         setup_hall_effect_gpio(pin_num_hall_br)
 
         pin_to_hall_type: Dict[int, str] = {
-            pin_num_hall_fl: "front-left",
-            pin_num_hall_fr: "front-right",
-            pin_num_hall_bl: "back-left",
-            pin_num_hall_br: "back-right",
+            pin_num_hall_fl: "fl",
+            pin_num_hall_fr: "fr",
+            pin_num_hall_bl: "bl",
+            pin_num_hall_br: "br",
         }
 
         rospy.loginfo("Successfully initialized menu_driver node")
