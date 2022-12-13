@@ -17,7 +17,7 @@ class HallEffect:
         Create Publisher for Hall Effect Sensors
         """
         self._publisher = rospy.Publisher(
-            f"baby_walker/sensors/hall_effect", HwBoolValue, queue_size=3
+            "sensors/hall_effect", HwBoolValue, queue_size=3
         )
 
     def hall_effect_high(self, index):
@@ -32,6 +32,7 @@ class HallEffect:
 def hall_callback(pin_num: int) -> None:
     """
     Notify publisher which hall effect went high
+
     @param pin_num: Pin number of hall effect
     """
     if GPIO.input(pin_num):
@@ -42,8 +43,8 @@ def hall_callback(pin_num: int) -> None:
 
 def setup_hall_effect_gpio(pin_num: int) -> None:
     """
-    Set up GPIO and callback for a button on a given pin on the board
-    @param pin_num: Pin number of digital button
+    Set up GPIO and callback for a hall effect on a given pin on the board
+    @param pin_num: Pin number of digital hall effect
     """
     GPIO.setup(pin_num, GPIO.IN)
     GPIO.add_event_detect(
@@ -60,7 +61,7 @@ if __name__ == "__main__":
         pin_num_hall_br = int(rospy.get_param("~pin_num_hall_br"))
 
         sensors = HallEffect()
-        # Set up all buttons so pressed = HIGH and not pressed = LOW
+        # Set up all hall effects in GPIO
         GPIO.setwarnings(False)  # Documentation says this is OK due to bugs in GPIO
         GPIO.setmode(GPIO.BOARD)
         setup_hall_effect_gpio(pin_num_hall_fl)
@@ -69,19 +70,16 @@ if __name__ == "__main__":
         setup_hall_effect_gpio(pin_num_hall_br)
 
         pin_to_hall_type: Dict[int, str] = {
-            pin_num_hall_fl : "front-left",
+            pin_num_hall_fl: "front-left",
             pin_num_hall_fr: "front-right",
             pin_num_hall_bl: "back-left",
             pin_num_hall_br: "back-right",
         }
 
-
         rospy.loginfo("Successfully initialized menu_driver node")
 
-        #while not rospy.is_shutdown():
-            #rospy.logwarn(GPIO.input(pin_num_hall_0))
-            #rospy.sleep(0.1)
         rospy.spin()
+
     except Exception as e:
         rospy.logerr(f"Failed to initialize menu_driver node: {traceback.format_exc()}")
 
