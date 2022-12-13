@@ -13,7 +13,7 @@ class Buzzer:
         """
         Initialize Buzzer Delay
         """
-        self.delay = 1
+        self.delay = 0
 
     def set_delay(self, delay_dur):
         self.delay = delay_dur
