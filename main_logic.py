@@ -12,7 +12,7 @@ def callback_hall(data: HwBoolValue):
     @param data: Message from the hall effect topic.
     """
     if data.val:
-        msg_servo = HwFloatValue(data.hw, 1)
+        msg_servo = HwFloatValue(data.hw, brake_power)
         pub_servo.publish(msg_servo)
         pub_buzz.publish(1)
     elif not data.val:
@@ -22,12 +22,13 @@ def callback_hall(data: HwBoolValue):
 
 
 def callback_brake_power(data: String):
-    pass
+    brake_power = int(data.data)
 
 def callback_new_environment(data: String):
     pass
 
 if __name__ == '__main__':
+    brake_power = 5
     rospy.init_node('main_node', anonymous=True)
 
     rospy.loginfo("Initialization complete")
