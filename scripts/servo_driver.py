@@ -70,9 +70,9 @@ if __name__ == "__main__":
 
         servo_hw_dict: Dict[str, ServoProperties] = {
             "fl": ServoProperties(pin_num_flf, pin_num_flb, 0),
-            "fr": ServoProperties(pin_num_frb, pin_num_frb, 0),
+            "fr": ServoProperties(pin_num_frf, pin_num_frb, 0),
             "bl": ServoProperties(pin_num_blf, pin_num_blb, 0),
-            "br": ServoProperties(pin_num_brb, pin_num_brb, 0),
+            "br": ServoProperties(pin_num_brf, pin_num_brb, 0),
         }
 
         subscriber = rospy.Subscriber("commands/servo", HwFloatValue, set_servo_cb)
